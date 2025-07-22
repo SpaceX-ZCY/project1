@@ -126,11 +126,6 @@ class TetrisGame {
             y: 0,
             color: COLORS[randomType]
         };
-        
-        // 检查游戏是否结束
-        if (this.checkCollision(this.currentPiece, 0, 0)) {
-            this.gameOver();
-        }
     }
     
     spawnNextPiece() {
@@ -220,7 +215,22 @@ class TetrisGame {
         }
         
         this.clearLines();
-        this.currentPiece = this.nextPiece;
+        
+        // 正确地设置新的当前方块
+        this.currentPiece = {
+            type: this.nextPiece.type,
+            shape: JSON.parse(JSON.stringify(this.nextPiece.shape)),
+            x: Math.floor(BOARD_WIDTH / 2) - Math.floor(this.nextPiece.shape[0].length / 2),
+            y: 0,
+            color: this.nextPiece.color
+        };
+        
+        // 检查游戏是否结束
+        if (this.checkCollision(this.currentPiece, 0, 0)) {
+            this.gameOver();
+            return;
+        }
+        
         this.spawnNextPiece();
     }
     
