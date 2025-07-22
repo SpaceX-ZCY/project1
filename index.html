@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯方块</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>俄罗斯方块</h1>
+        </div>
+        
+        <div class="game-area">
+            <div class="info-panel">
+                <div class="score-section">
+                    <h3>得分</h3>
+                    <div id="score">0</div>
+                </div>
+                
+                <div class="level-section">
+                    <h3>等级</h3>
+                    <div id="level">1</div>
+                </div>
+                
+                <div class="lines-section">
+                    <h3>消除行数</h3>
+                    <div id="lines">0</div>
+                </div>
+                
+                <div class="next-section">
+                    <h3>下一个</h3>
+                    <canvas id="next-canvas" width="120" height="120"></canvas>
+                </div>
+            </div>
+            
+            <div class="game-board">
+                <canvas id="game-canvas" width="300" height="600"></canvas>
+                <div id="game-over" class="game-over hidden">
+                    <div class="game-over-content">
+                        <h2>游戏结束</h2>
+                        <p>最终得分: <span id="final-score">0</span></p>
+                        <button id="restart-btn">重新开始</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="controls-info">
+                <h3>操作说明</h3>
+                <p>← → 移动方块</p>
+                <p>↓ 快速下降</p>
+                <p>↑ 旋转方块</p>
+                <p>空格键 暂停/继续</p>
+            </div>
+            
+            <div class="game-controls">
+                <button id="pause-btn">暂停</button>
+                <button id="new-game-btn">新游戏</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
